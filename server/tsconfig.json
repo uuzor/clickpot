@@ -1,0 +1,25 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "bun",
+      "node"
+    ],
+    "lib": [
+      "ES2022"
+    ],
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.server.tsbuildinfo",
+    "paths": {
+      "@/*": [
+        "../src/*"
+      ]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "../src/abi",
+    "../src/shared",
+    "../src/onchain-facts.ts"
+  ],
+  "exclude": []
+}

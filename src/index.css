@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens
+ * obsidian #1a1a1a · paper #ffffff · stage-black #000000 · concrete #959595
+ * stone #90867a · sky-tint #94bbff · deep-sky #71a0ff · brand-blue #002a57
+ * One typeface everywhere. Display weights are light (300), controls are 500.
+ */
+:root {
+  --obsidian: #1a1a1a;
+  --paper: #ffffff;
+  --stage-black: #000000;
+  --concrete: #959595;
+  --stone: #90867a;
+  --sky-tint: #94bbff;
+  --deep-sky: #71a0ff;
+  --brand-blue: #002a57;
+
+  --bg: var(--paper);
+  --surface: var(--paper);
+  --surface-strong: var(--paper);
+  --surface-muted: rgba(26, 26, 26, 0.045);
+  --ink: var(--obsidian);
+  --ink-2: rgba(26, 26, 26, 0.82);
+  --muted: rgba(26, 26, 26, 0.66);
+  --subtle: var(--concrete);
+  --border: rgba(26, 26, 26, 0.14);
+  --border-strong: var(--obsidian);
+  --accent: var(--stage-black);
+  --accent-hover: var(--brand-blue);
+  --accent-soft: rgba(148, 187, 255, 0.28);
+  --focus: var(--deep-sky);
+
+  /* Semantic status colours stay readable and are used for state only */
+  --success: #1a7a45;
+  --success-soft: rgba(26, 122, 69, 0.1);
+  --danger: #b3263f;
+  --danger-soft: rgba(179, 38, 63, 0.09);
+  --warn: #8a5208;
+  --warn-soft: rgba(144, 134, 122, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display type whispers: light weight, tracking tightens as size grows */
+.display {
+  font-family: inherit;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em;
+}
+.display.text-base,
+.display.text-lg,
+.display.text-xl {
+  font-weight: 400 !important;
+  letter-spacing: -0.018em;
+}
+.display.text-2xl,
+.display.text-3xl {
+  letter-spacing: -0.03em;
+}
+.display.text-4xl {
+  letter-spacing: -0.04em;
+}
+.display.text-5xl,
+.display.text-6xl {
+  letter-spacing: -0.055em;
+}
+
+/* Hashes and addresses use the same typeface with fixed-width figures */
+.mono {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* Flat paper card with a hairline border */
+.glass {
+  background: var(--paper);
+  border: 1px solid var(--border);
+}
+
+/* Quiet inset surface */
+.inner {
+  background: var(--surface-muted);
+}
+
+/* Decorative sky band used behind content, never on controls */
+.spectral-bar {
+  background: linear-gradient(90deg, var(--sky-tint), var(--deep-sky));
+}
+.sky-band {
+  background: var(--sky-tint);
+  color: var(--brand-blue);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ConnectKit modal sits above the app chrome */
+[data-ck] {
+  z-index: 100;
+}

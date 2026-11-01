@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.*
+.circle
+server/data
+contracts/out
+contracts/cache
+traces.jsonl
+console.jsonl
+*.log

@@ -1,0 +1,41 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        ink: 'var(--ink)',
+        'ink-2': 'var(--ink-2)',
+        muted: 'var(--muted)',
+        subtle: 'var(--subtle)',
+        line: 'var(--border)',
+        'line-strong': 'var(--border-strong)',
+        accent: 'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
+        'accent-soft': 'var(--accent-soft)',
+        focus: 'var(--focus)',
+        success: 'var(--success)',
+        'success-soft': 'var(--success-soft)',
+        danger: 'var(--danger)',
+        'danger-soft': 'var(--danger-soft)',
+        warn: 'var(--warn)',
+        'warn-soft': 'var(--warn-soft)',
+        obsidian: 'var(--obsidian)',
+        concrete: 'var(--concrete)',
+        stone: 'var(--stone)',
+        sky: 'var(--sky-tint)',
+        'deep-sky': 'var(--deep-sky)',
+        brand: 'var(--brand-blue)',
+        surface: 'var(--surface)',
+        'surface-strong': 'var(--surface-strong)',
+        'surface-muted': 'var(--surface-muted)',
+      },
+      fontFamily: {
+        sans: ['Figtree', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        display: ['Figtree', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        mono: ['Figtree', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
