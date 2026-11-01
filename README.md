@@ -44,6 +44,26 @@ bun run contracts:test
 - `CLICK_HOLD_SECONDS`: optional, how long a click is held before payout (default 30).
 - `RPC_PROXY_BASE_URL`, `RPC_PROXY_TOKEN`, `RPC_PROXY_CHAINS`: optional outside Arc Studio. When present the tracker uses them for RPC, otherwise it uses the public Arc Testnet RPC.
 
+## Mainnet smoke run
+
+`scripts/mainnet-flow.ts` runs one full business and creator cycle on Arc mainnet with fresh wallets. It moves real USDC, so run it on your own machine and review it first. Needs about 0.3 USDC on Arc mainnet.
+
+```bash
+forge build
+bun scripts/mainnet-flow.ts keygen     # prints the deployer address to fund
+bun scripts/mainnet-flow.ts run        # deploy, fund, create campaign, approve creator, pay clicks
+bun scripts/mainnet-flow.ts close      # later: request early close
+bun scripts/mainnet-flow.ts withdraw   # after the one hour notice: take back the leftover pot
+```
+
+Keys are saved in `.env.mainnet.json` (ignored by git). Never share or commit it. Each run records transaction hashes in the section below.
+
+### Mainnet transactions
+
+<!-- mainnet-txs:start -->
+Not run yet.
+<!-- mainnet-txs:end -->
+
 ## Notes
 
 - The tracker is the trusted party that counts clicks and pays creators. The contract only lets it pay approved creators from a campaign's own pot, and a business cannot withdraw before the campaign ends or a one hour notice passes.
